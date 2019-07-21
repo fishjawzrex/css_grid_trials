@@ -6,12 +6,42 @@
     background: #FFF;
     display: grid;
     grid-gap: 2px;
-    grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+    "header header header"
+    ". content content"
+    /*". . ."*/
+    "footer footer footer";
 
+  }
+  @media (max-width: 600px) {
+    .wrapper {
+    grid-template-columns: 50px, 1fr;
+    grid-template-rows: auto, 1fr, auto;
+    grid-template-areas:
+    "header content"
+    "header content "
+    "header footer ";
+  }
   }
   .wrapper div {
     height: 100px;
 
+  }
+  .wrapper_2 {
+    background: #FFF;
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+
+  }
+  .wrapper_2 div {
+    height: 100px;
+
+  }
+  .art_2 {
+    margin-top: 100px;
   }
   #pink{
     background: pink;
@@ -19,16 +49,20 @@
 
   #dodgerblue {
     background: dodgerblue;
+    grid-area: content;
   }
   #yellow {
     background: yellow;
+    width: 100%;
 
   }
   #lightgreen {
     background: lightgreen;
+    grid-area: footer;
   }
   #red {
     background: red;
+    grid-area: header;
   }
 </style>
   <head>
@@ -39,6 +73,27 @@
   <body>
     <article class="art">
       <div class="wrapper">
+        <div id=pink>
+          Pink
+        </div>
+        <div id="dodgerblue">
+          Content
+        </div>
+        <div id="yellow">
+          Yellow
+        </div>
+        <div id="lightgreen">
+          Footer
+        </div>
+        <div id="red">
+          Header
+        </div>
+
+      </div>
+
+    </article>
+    <article class="art_2">
+      <div class="wrapper_2">
         <div id=pink>
           Pink
         </div>
